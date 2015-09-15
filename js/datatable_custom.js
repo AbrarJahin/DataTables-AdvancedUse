@@ -1,6 +1,8 @@
+var dataTable;			//To make it global everywhere
+
 $(document).ready(function()
 {
-	var dataTable =  $('#employee-grid').DataTable(
+	dataTable =  $('#employee-grid').DataTable(
 	{
 		processing: true,
 		serverSide: true,			//For Enabling AJAX
@@ -117,9 +119,11 @@ function addNewEntry()
 function itemEdit(item_ID)
 {
 	alert("Edit Item with ID = "+item_ID);
+	dataTable.fnDraw();					//To refresh the table after Editing
 }
 
 function itemDelete(item_ID)
 {
 	alert("Delete Item with ID = "+item_ID);
+	dataTable.fnDraw();					////To refresh the table after Deleting
 }
