@@ -23,6 +23,13 @@
 		<div class="container">
 			<table id="employee-grid"  class="display" cellspacing="0" width="100%">
 				<thead>
+					<!-- Problamatic Part -->
+					<tr>
+						<th rowspan="2">Name</th>
+						<th colspan="2">HR Information</th>
+						<th colspan="3">Contact</th>
+					</tr>
+					<!-- Problamatic Part - END -->
 					<tr>
 						<th>Employee name</th>
 						<th>Salary</th>

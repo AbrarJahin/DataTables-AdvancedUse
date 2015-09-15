@@ -8,15 +8,15 @@ $(document).ready(function()
 
 		"ajax":
 		{
-            "url": "employee-grid-data.php",
-            //"type": 'POST',
-            "data": function ( d )				//Sending Custom Data for manupulating with elements out of the table
+			"url": "employee-grid-data.php",
+			//"type": 'POST',
+			"data": function ( d )				//Sending Custom Data for manupulating with elements out of the table
 					{
 						d.myKey = "myValue";
 						// d.custom = $('#myInput').val();
 						// etc
 					}
-        },
+		},
 
 		"pagingType": "full_numbers",	//Adding Last and First in Pagination
 		stateSave: true,
