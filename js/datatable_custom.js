@@ -4,22 +4,28 @@ $(document).ready(function()
 	{
 		processing: true,
 		serverSide: true,
-		//ajax: "employee-grid-data.php", // json datasource for AJAX Data
 
 		"ajax":
 		{
 			"url": "employee-grid-data.php",
-			//"type": 'POST',
+			"type": 'POST',
 			"data": function ( d )				//Sending Custom Data for manupulating with elements out of the table
 					{
 						d.myKey = "myValue";
 						// d.custom = $('#myInput').val();
 						// etc
+					},
+			"error": function()									//Custom Error Function
+					{									// error handling
+						$(".employee-grid-error").html("");
+						$("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+						$("#employee-grid_processing").css("display","none");
+						
 					}
 		},
-
-		"pagingType": "full_numbers",	//Adding Last and First in Pagination
+		//"pagingType": "full_numbers",	//Adding Last and First in Pagination
 		stateSave: true,
+
 		"language":{					//Custom Message Setting
 						"lengthMenu": "Display _MENU_ records per page",	//Customizing menu Text
 						"zeroRecords": "Nothing found - sorry",				//Customizing zero record text - filtered
@@ -27,6 +33,7 @@ $(document).ready(function()
 						"infoEmpty": "No records available",				//Customizing zero record message - base
 						"infoFiltered": "(filtered from _MAX_ total records)"	//Customizing filtered message
 					},
+
 		"lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],		//For customizing number of data sets per page
 
 		dom: 'l<"toolbar">Bfrtip',	//"Bfrtip" is for column visiblity - B F and R become visible

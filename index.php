@@ -24,19 +24,19 @@
 			<table id="employee-grid"  class="display" cellspacing="0" width="100%">
 				<thead>
 					<!-- Problamatic Part -->
-					<tr>
+					<!-- <tr>
 						<th rowspan="2">Name</th>
 						<th colspan="2">HR Information</th>
 						<th colspan="3">Contact</th>
-					</tr>
+					</tr> -->
 					<!-- Problamatic Part - END -->
 					<tr>
-						<th>Employee name</th>
+						<th>Employee Name</th>
 						<th>Salary</th>
 						<th>Position</th>
 						<th>City</th>
 						<th>Extension</th>
-						<th>Joining date</th>
+						<th>Joining Date</th>
 						<th>Age</th>
 					</tr>
 					<tr>
