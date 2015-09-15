@@ -41,7 +41,7 @@ $(document).ready(function()
 		dom: 'l<"toolbar">Bfrtip',	//"Bfrtip" is for column visiblity - B F and R become visible
 		initComplete:	function()	//Adding Custom button in Tools
 						{
-							$("div.toolbar").html('<button onclick="addNewEntry()" class="btn btn-success btn-lg">Add a New Record</button>');
+							$("div.toolbar").html('<button style="float:right;" onclick="addNewEntry()" class="btn btn-success btn-lg">Add a New Record</button>');
 						},
 		orderCellsTop: true,			//Collumn Visiblity Buttons - Visual Reorganising - Bug Fixing
 		buttons:	[					//Collumn Visiblity Buttons
