@@ -36,7 +36,7 @@
 						<th>Position</th>
 						<th>City</th>
 						<th>Extension</th>
-						<th>Joining Date</th>
+						<th style="min-width: 110px;">Joining Date</th>
 						<th>Age</th>
 						<th>Action</th>
 					</tr>
