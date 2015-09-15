@@ -38,6 +38,7 @@
 						<th>Extension</th>
 						<th>Joining Date</th>
 						<th>Age</th>
+						<th>Action</th>
 					</tr>
 					<tr>
 						<td><input type="text" id="0"  class="employee-search-input"></td>
@@ -45,8 +46,9 @@
 						<td><input type="text" id="2" class="employee-search-input" ></td>
 						<td><input type="text" id="3" class="employee-search-input" ></td>
 						<td><input type="text" id="4" class="employee-search-input" ></td>
-						<td  valign="middle"><input  readonly="readonly" type="text" id="5" class="employee-search-input datepicker" ></td>
+						<td  valign="middle"><input id="5"  readonly="readonly" type="text" class="employee-search-input datepicker" ></td>
 						<td><input type="text" id="6" class="employee-search-input" ></td>
+						<th><input type="hidden"></th>
 					</tr>
 				</thead>
 			</table>

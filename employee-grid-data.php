@@ -67,8 +67,11 @@ $sql.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestD
 $query=mysqli_query($conn, $sql) or die("employee-grid-data.php: get employees1");
 
 $data = array();
-while( $row=mysqli_fetch_array($query) ) {  // preparing an array
+while( $row=mysqli_fetch_array($query) )
+{  // preparing an array
 	$nestedData=array(); 
+
+	//$nestedData[] = "<input type='checkbox'  class='deleteRow' value='".$row['id']."'  /> #".$i ;
 
 	$nestedData[] = $row["employee_name"];
 	$nestedData[] = $row["employee_salary"];
@@ -77,7 +80,9 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 	$nestedData[] = $row["employee_extension"];
 	$nestedData[] = $row["employee_joining_date"];
 	$nestedData[] = $row["employee_age"];
-	
+
+	$nestedData[] = rand();		//Send ID here for edit and delete an item
+
 	$data[] = $nestedData;
 }
 

@@ -3,8 +3,8 @@ $(document).ready(function()
 	var dataTable =  $('#employee-grid').DataTable(
 	{
 		processing: true,
-		serverSide: true,
-
+		serverSide: true,			//For Enabling AJAX
+		"deferRender": true,		//For Speed up procesing time
 		"ajax":
 		{
 			"url": "employee-grid-data.php",
@@ -39,7 +39,7 @@ $(document).ready(function()
 		dom: 'l<"toolbar">Bfrtip',	//"Bfrtip" is for column visiblity - B F and R become visible
 		initComplete:	function()	//Adding Custom button in Tools
 						{
-							$("div.toolbar").html('<button type="button" onclick="addNewEntry()">Add a New Record</button>');
+							$("div.toolbar").html('<button onclick="addNewEntry()" class="btn btn-success btn-lg">Add a New Record</button>');
 						},
 		orderCellsTop: true,			//Collumn Visiblity Buttons - Visual Reorganising - Bug Fixing
 		buttons:	[					//Collumn Visiblity Buttons
@@ -49,8 +49,29 @@ $(document).ready(function()
 							postfixButtons: [ 'colvisRestore' ]
 						}
 					],
+		"columnDefs":	[								//For Action Buttons (Edit and Delete button) adding in the Action Column
+							{
+								"orderable": false,		//Turn off ordering
+								"searchable": false,	//Turn off searching
+								"targets": -1,			//Going to last column
+								"data": null,			//Not receiving any data
+								"defaultContent": '<div style="min-width:70px" class="btn-group" role="group"><button type="button" class="edit btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button><button type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></div>'
+							}
+						],
 
-	});					
+	});
+
+	$('#employee-grid tbody').on( 'click', 'button.edit', function ()	//Handeling Edit Button Click
+	{
+		var data = dataTable.row( $(this).parents('tr') ).data();
+		itemEdit(data[7]);	//7 = index of ID sent from server
+	} );
+
+	$('#employee-grid tbody').on( 'click', 'button.delete', function ()	//Handeling Delete Button Click
+	{
+		var data = dataTable.row( $(this).parents('tr') ).data();
+		itemDelete(data[7]);	//7 = index of ID sent from server
+	} );
 
 	$("#employee-grid_filter").css("display","none");  // hiding global search box
 
@@ -91,4 +112,14 @@ function addNewEntry()
 	$("#addNewData").modal({}).draggable();
 	$(".modal-body")
 	$('#addNewData').modal('show');
+}
+
+function itemEdit(item_ID)
+{
+	alert("Edit Item with ID = "+item_ID);
+}
+
+function itemDelete(item_ID)
+{
+	alert("Delete Item with ID = "+item_ID);
 }
