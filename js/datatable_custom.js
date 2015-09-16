@@ -1,3 +1,5 @@
+var tableID = '#employee-grid';
+
 $(document).ready(function()
 {
 	var dataTable =  $('#employee-grid').DataTable(
@@ -11,7 +13,9 @@ $(document).ready(function()
 			"type": 'POST',
 			"data": function ( d )				//Sending Custom Data for manupulating with elements out of the table
 					{
-						d.myKey = "myValue";
+						d.StartDate	=	"12-13-14";
+						d.EndDate	=	"Fuck You";
+						d.StateID	=	123;
 						// d.custom = $('#myInput').val();
 						// etc
 					},
@@ -45,7 +49,7 @@ $(document).ready(function()
 		buttons:	[					//Collumn Visiblity Buttons
 						{
 							extend: 'colvis',
-							collectionLayout: 'fixed three-column',
+							collectionLayout: 'fixed three-column',			//Number of Columns in Column Viiblity POP Up
 							postfixButtons: [ 'colvisRestore' ]
 						}
 					],
@@ -129,6 +133,13 @@ function itemEdit(item_ID)
 
 function itemDelete(item_ID)
 {
-	alert("Delete Item with ID = "+item_ID);
+	if (confirm("Press a button!") == true)
+	{	//Do something AJAX for deletation
+		alert("Deleted Item with ID = "+item_ID);
+	}
+	else
+	{
+		alert("Data is not deleted!!");
+	}
 	dataTable.fnDraw();					////To refresh the table after Deleting
 }

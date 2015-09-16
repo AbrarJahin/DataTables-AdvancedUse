@@ -46,7 +46,7 @@
 						<td><input type="text" id="2" placeholder="Search" class="employee-search-input" ></td>
 						<td><input type="text" id="3" placeholder="Search" class="employee-search-input" ></td>
 						<td><input type="text" id="4" placeholder="Search" class="employee-search-input" ></td>
-						<td valign="middle"><input type="text" id="5" placeholder="Search" class="employee-search-input datepicker" readonly="readonly"></td>
+						<td valign="middle"><input type="text" id="5" placeholder="Select Date" class="employee-search-input datepicker" readonly="readonly"></td>
 						<td><input type="text" id="6" placeholder="Search" class="employee-search-input" ></td>
 						<th><input type="hidden"></th>
 					</tr>
