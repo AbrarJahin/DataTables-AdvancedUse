@@ -1,8 +1,6 @@
-var dataTable;			//To make it global everywhere
-
 $(document).ready(function()
 {
-	dataTable =  $('#employee-grid').DataTable(
+	var dataTable =  $('#employee-grid').DataTable(
 	{
 		processing: true,
 		serverSide: true,			//For Enabling AJAX
@@ -41,7 +39,7 @@ $(document).ready(function()
 		dom: 'l<"toolbar">Bfrtip',	//"Bfrtip" is for column visiblity - B F and R become visible
 		initComplete:	function()	//Adding Custom button in Tools
 						{
-							$("div.toolbar").html('<button style="float:right;" onclick="addNewEntry()" class="btn btn-success btn-lg">Add a New Record</button>');
+							$("div.toolbar").html('<div class="btn-group" style="float:right;"><button onclick="resetAllFilters()" type="button" class="btn btn-info btn-lg">Reset All Filters</button><button onclick="addNewEntry()" class="btn btn-success btn-lg">Add a New Record</button></div>');
 						},
 		orderCellsTop: true,			//Collumn Visiblity Buttons - Visual Reorganising - Bug Fixing
 		buttons:	[					//Collumn Visiblity Buttons
@@ -109,10 +107,17 @@ $(document).ready(function()
 
 });
 
+function resetAllFilters()
+{
+	$('#employee-grid').DataTable().state.clear();		//Clear all state
+	$(':input').val('');								//Clear all input
+	//$('#employee-grid').DataTable().ajax.reload();	//Not working Reloding all AJAX data
+	location.reload();
+}
+
 function addNewEntry()
 {
 	$("#addNewData").modal({}).draggable();
-	$(".modal-body")
 	$('#addNewData').modal('show');
 }
 
