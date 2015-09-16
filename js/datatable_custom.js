@@ -35,7 +35,8 @@ $(document).ready(function()
 						{	"data": "employee_city"			},
 						{	"data": "employee_extension"	},
 						{	"data": "employee_joining_date"	},
-						{	"data": "employee_age"			}
+						{	"data": "employee_age"			},
+						{	"data": null					}		//If it is not null then buttons would not be shown
 					],
 		//"pagingType": "full_numbers",	//Adding Last and First in Pagination
 		stateSave: true,
@@ -59,7 +60,7 @@ $(document).ready(function()
 		buttons:	[					//Collumn Visiblity Buttons
 						{
 							extend: 'colvis',
-							collectionLayout: 'fixed three-column',			//Number of Columns in Column Viiblity POP Up
+							collectionLayout: 'fixed four-column',			//Number of Columns in Column Viiblity POP Up
 							postfixButtons: [ 'colvisRestore' ]
 						}
 					],

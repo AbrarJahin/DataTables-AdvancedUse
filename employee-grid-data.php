@@ -111,6 +111,7 @@ while( $row=mysqli_fetch_array($query) )
 							"employee_extension"	=>	$nestedData[] = $row["employee_extension"],
 							"employee_joining_date"	=>	$nestedData[] = $row["employee_joining_date"],
 							"employee_age"			=>	$nestedData[] = $row["employee_age"],
+							"employee_age1"			=>	$nestedData[] = $row["employee_age"],	//Extra data dosen't matter - ordering doesn't matter, tagname matters
 
 							"id"					=>	$nestedData[] = rand()		//Send ID here for edit and delete an item
 						);
