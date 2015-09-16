@@ -1,9 +1,10 @@
-var tableID = '#employee-grid';
+//Applied on Table with ID = "employee-grid"
 
 $(document).ready(function()
 {
 	var dataTable =  $('#employee-grid').DataTable(
 	{
+		"scrollX": true,
 		processing: true,
 		serverSide: true,			//For Enabling AJAX
 		"deferRender": true,		//For Speed up procesing time
@@ -27,6 +28,15 @@ $(document).ready(function()
 						
 					}
 		},
+		"columns":	[				//Name should be same as PHP file JSON NAmes and ordering should be as in the HTML file
+						{	"data": "employee_name"			},
+						{	"data": "employee_salary"		},
+						{	"data": "employee_position"		},
+						{	"data": "employee_city"			},
+						{	"data": "employee_extension"	},
+						{	"data": "employee_joining_date"	},
+						{	"data": "employee_age"			}
+					],
 		//"pagingType": "full_numbers",	//Adding Last and First in Pagination
 		stateSave: true,
 
@@ -57,7 +67,7 @@ $(document).ready(function()
 							{
 								"orderable": false,		//Turn off ordering
 								"searchable": false,	//Turn off searching
-								"targets": -1,			//Going to last column
+								"targets": [7],			//Going to last column - 7 is the last column index because o is starting index
 								"data": null,			//Not receiving any data
 								"defaultContent": '<div style="min-width:70px" class="btn-group" role="group"><button type="button" class="edit btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button><button type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></div>'
 							}
@@ -68,13 +78,13 @@ $(document).ready(function()
 	$('#employee-grid tbody').on( 'click', 'button.edit', function ()	//Handeling Edit Button Click
 	{
 		var data = dataTable.row( $(this).parents('tr') ).data();
-		itemEdit(data[7]);	//7 = index of ID sent from server
+		itemEdit(data['id']);	//id = index of ID sent from server
 	} );
 
 	$('#employee-grid tbody').on( 'click', 'button.delete', function ()	//Handeling Delete Button Click
 	{
 		var data = dataTable.row( $(this).parents('tr') ).data();
-		itemDelete(data[7]);	//7 = index of ID sent from server
+		itemDelete(data['id']);	//id = index of ID sent from server
 	} );
 
 	$("#employee-grid_filter").css("display","none");  // hiding global search box

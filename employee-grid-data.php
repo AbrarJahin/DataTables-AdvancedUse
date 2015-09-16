@@ -10,7 +10,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Conne
 /* Database connection end */
 
 $columns = array( 
-				// datatable column index  => database column name	->	Should be same as the main HTML table
+				// datatable column index  => database column name	->	Should be same as the main HTML table -> Used for Finding Sorting Index Correctly
 					0 => 'employee_name', 
 					1 => 'employee_salary',
 					2 => 'employee_position',
@@ -103,15 +103,17 @@ while( $row=mysqli_fetch_array($query) )
 {  // Preparing an array For Returning Reponce
 	$nestedData=array(); 
 
-	$nestedData[] = $row["employee_name"];
-	$nestedData[] = $row["employee_salary"];
-	$nestedData[] = $row["employee_position"];
-	$nestedData[] = $row["employee_city"];
-	$nestedData[] = $row["employee_extension"];
-	$nestedData[] = $row["employee_joining_date"];
-	$nestedData[] = $row["employee_age"];
+	$nestedData = array	(
+							"employee_name"			=>	$nestedData[] = $row["employee_name"],
+							"employee_salary"		=>	$nestedData[] = $row["employee_salary"],
+							"employee_position"		=>	$nestedData[] = $row["employee_position"],
+							"employee_city"			=>	$nestedData[] = $row["employee_city"],
+							"employee_extension"	=>	$nestedData[] = $row["employee_extension"],
+							"employee_joining_date"	=>	$nestedData[] = $row["employee_joining_date"],
+							"employee_age"			=>	$nestedData[] = $row["employee_age"],
 
-	$nestedData[] = rand();		//Send ID here for edit and delete an item
+							"id"					=>	$nestedData[] = rand()		//Send ID here for edit and delete an item
+						);
 
 	$data[] = $nestedData;
 }
