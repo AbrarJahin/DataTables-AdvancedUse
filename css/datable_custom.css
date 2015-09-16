@@ -5,23 +5,27 @@ th, td
 
 div.container
 {
-	max-width: 980px;
+	width: 100%;
 	margin: 0 auto;
 }
-	div.header
+
+div.header
 {
 	margin: 0 auto;
 	max-width:980px;
 }
+
 body
 {
 	background: #f7f7f7;
 	color: #333;
 }
+
 .employee-search-input
 {
 	width: 100%;
 }
+
 .datepicker
 {
 	float:left;width:70%;
