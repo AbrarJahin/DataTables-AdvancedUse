@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "hpippm";
+$dbname = "test";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
 
@@ -54,7 +54,7 @@ $per_page_content_number	=	$requestData['length'];
 
 
 // getting total number records without any search
-$sql = "SELECT employee_id";
+$sql = "SELECT id";
 $sql.=" FROM employee";
 $query=mysqli_query($conn, $sql) or die("employee-grid-data.php: get employees");
 $totalData = mysqli_num_rows($query);
